@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="header">
+   <ion-searchbar class="search-custom" (ionInput)="searchLyrics($event)"></ion-searchbar>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    <ion-item *ngFor="let lyric of lyrics" >
+      <ion-thumbnail item-left>
+        <img src="{{lyric.thumburl}}">
+      </ion-thumbnail>
+      <span (click)="openPage(lyric)">
+        <h2>{{lyric.title}}</h2>
+        <p>{{lyric.author}}</p>
+        <p>{{lyric.description}}</p>
+      </span>
+      <ion-icon name="heart" item-right color="fav{{lyric.favorite}}" (click)="favorite(lyric)"></ion-icon>
+      <!--<button ion-button clear item-right>View</button>-->
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-navbar color="header">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-25>
+            <ion-buttons>
+              <button ion-button color="royal">
+                <div>
+                  <ion-icon name="musical-note"></ion-icon>
+                  <br>
+                  <label class="footer-tab">All</label>
+                </div>
+              </button>
+            </ion-buttons>
+        </ion-col>
+        <ion-col width-25>
+          <ion-buttons>
+            <button ion-button color="royal">
+              <div>
+                <ion-icon name="heart"></ion-icon>
+                <br>
+                <label class="footer-tab">Favorite</label>
+              </div>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col width-25>
+          <ion-buttons>
+            <button ion-button color="royal">
+              <div>
+                <ion-icon name="sync"></ion-icon>
+                <br>
+                <label class="footer-tab">Update</label>
+              </div>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col width-25>
+          <ion-buttons>
+            <button ion-button color="royal">
+              <div>
+                <ion-icon name="settings"></ion-icon>
+                <br>
+                <label class="footer-tab">Settings</label>
+              </div>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-footer>
